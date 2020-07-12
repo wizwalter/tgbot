@@ -53,7 +53,7 @@ def get_today_statistics() -> str:
     all_today_expenses = result[0]
     return (f"Расходы сегодня:\n"
             f"всего — {all_today_expenses} руб.\n"
-            f"За текущий месяц: /month")
+            f"За текущий месяц: /currentMonth")
 
 
 def get_month_statistics(current_month: str) -> str:
