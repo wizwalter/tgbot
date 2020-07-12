@@ -75,7 +75,6 @@ def get_month_statistics(current_month: str) -> str:
 
 def _parse_message(raw_message: str) -> Message:
     """Парсит текст пришедшего сообщения о новом расходе."""
-    raw_message = raw_message.strip().lower()
     regexp_result = re.match(r"([\d ]+) (.*)", raw_message)
     if regexp_result == None:
         raise exceptions.NotCorrectMessage(
