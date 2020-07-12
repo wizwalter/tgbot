@@ -2,6 +2,9 @@
 import logging
 
 from aiogram import Bot, Dispatcher, executor, types
+from aiogram.types import ReplyKeyboardRemove, \
+    ReplyKeyboardMarkup, KeyboardButton, \
+    InlineKeyboardMarkup, InlineKeyboardButton
 import datetime
 import os
 
@@ -20,6 +23,14 @@ bot = Bot(token=API_TOKEN)
 dp = Dispatcher(bot)
 dp.middleware.setup(AccessMiddleware(ACCESS_ID))
 
+button_today = KeyboardButton('/today')
+button_current_month = KeyboardButton('/currentMonth')
+button_category = KeyboardButton('/categories')
+
+markup = ReplyKeyboardMarkup(resize_keyboard=True).add(
+    button_today).add(button_current_month).add(
+    button_category)
+
 @dp.message_handler(commands=['start', 'help'])
 async def send_welcome(message: types.Message):
     """Отправляет приветственное сообщение и помощь по боту"""
@@ -28,7 +39,8 @@ async def send_welcome(message: types.Message):
         "Добавить расход: 250 такси\n"
         "За сегодня: /today\n"
         "За текущий месяц: /currentMonth\n"
-        "Категории расходов: /categories")
+        "Категории расходов: /categories",
+        reply_markup = markup)
 
 
 @dp.message_handler(commands=['today'])
