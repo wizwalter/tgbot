@@ -46,84 +46,84 @@ async def month_statistics(message: types.Message):
     answer_message = expenses.get_month_statistics(current_month)
     await message.answer(answer_message)
 
-@dp.message_handler(commands=['январь'])
+@dp.message_handler(commands=['january'])
 async def january_statistics(message: types.Message):
     """Отправляет статистику расходов за январь месяц в текущем году"""
     answer_message = expenses.get_month_statistics('01')
     await message.answer(answer_message)
 
 
-@dp.message_handler(commands=['февраль'])
+@dp.message_handler(commands=['february'])
 async def february_statistics(message: types.Message):
     """Отправляет статистику расходов за февраль месяц в текущем году"""
     answer_message = expenses.get_month_statistics('02')
     await message.answer(answer_message)
 
 
-@dp.message_handler(commands=['март'])
+@dp.message_handler(commands=['march'])
 async def march_statistics(message: types.Message):
     """Отправляет статистику расходов за март месяц в текущем году"""
     answer_message = expenses.get_month_statistics('03')
     await message.answer(answer_message)
 
 
-@dp.message_handler(commands=['апрель'])
+@dp.message_handler(commands=['april'])
 async def april_statistics(message: types.Message):
     """Отправляет статистику расходов за апрель месяц в текущем году"""
     answer_message = expenses.get_month_statistics('04')
     await message.answer(answer_message)
 
 
-@dp.message_handler(commands=['май'])
+@dp.message_handler(commands=['may'])
 async def may_statistics(message: types.Message):
     """Отправляет статистику расходов за май месяц в текущем году"""
     answer_message = expenses.get_month_statistics('05')
     await message.answer(answer_message)
 
 
-@dp.message_handler(commands=['июнь'])
+@dp.message_handler(commands=['june'])
 async def june_statistics(message: types.Message):
     """Отправляет статистику расходов за июня месяц в текущем году"""
     answer_message = expenses.get_month_statistics('06')
     await message.answer(answer_message)
 
 
-@dp.message_handler(commands=['июль'])
+@dp.message_handler(commands=['july'])
 async def july_statistics(message: types.Message):
     """Отправляет статистику расходов за июль месяц в текущем году"""
     answer_message = expenses.get_month_statistics('07')
     await message.answer(answer_message)
 
 
-@dp.message_handler(commands=['август'])
+@dp.message_handler(commands=['august'])
 async def august_statistics(message: types.Message):
     """Отправляет статистику расходов за август месяц в текущем году"""
     answer_message = expenses.get_month_statistics('08')
     await message.answer(answer_message)
 
 
-@dp.message_handler(commands=['сентябрь'])
+@dp.message_handler(commands=['september'])
 async def september_statistics(message: types.Message):
     """Отправляет статистику расходов за сентябрь месяц в текущем году"""
     answer_message = expenses.get_month_statistics('09')
     await message.answer(answer_message)
 
 
-@dp.message_handler(commands=['октябрь'])
+@dp.message_handler(commands=['october'])
 async def october_statistics(message: types.Message):
     """Отправляет статистику расходов за октябрь месяц в текущем году"""
     answer_message = expenses.get_month_statistics('10')
     await message.answer(answer_message)
 
 
-@dp.message_handler(commands=['ноябрь'])
+@dp.message_handler(commands=['november'])
 async def november_statistics(message: types.Message):
     """Отправляет статистику расходов за ноябрь месяц в текущем году"""
     answer_message = expenses.get_month_statistics('11')
     await message.answer(answer_message)
 
 
-@dp.message_handler(commands=['декабрь'])
+@dp.message_handler(commands=['december'])
 async def december_statistics(message: types.Message):
     """Отправляет статистику расходов за декабрь месяц в текущем году"""
     answer_message = expenses.get_month_statistics('12')
