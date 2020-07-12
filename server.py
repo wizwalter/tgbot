@@ -2,6 +2,7 @@
 import logging
 
 from aiogram import Bot, Dispatcher, executor, types
+import datetime
 import os
 
 import exceptions
@@ -26,7 +27,7 @@ async def send_welcome(message: types.Message):
         "Бот для учёта расходов\n\n"
         "Добавить расход: 250 такси\n"
         "За сегодня: /today\n"
-        "За текущий месяц: /month\n"
+        "За текущий месяц: /currentMonth\n"
         "Категории расходов: /categories")
 
 
@@ -37,10 +38,95 @@ async def today_statistics(message: types.Message):
     await message.answer(answer_message)
 
 
-@dp.message_handler(commands=['month'])
+@dp.message_handler(commands=['currentMonth'])
 async def month_statistics(message: types.Message):
-    """Отправляет статистику расходов за текущий месяц"""
-    answer_message = expenses.get_month_statistics()
+    """Отправляет статистику расходов за текущий месяц в текущем году"""
+    now = _get_now_datetime()
+    current_month = f"{now.month:02d}"
+    answer_message = expenses.get_month_statistics(current_month)
+    await message.answer(answer_message)
+
+@dp.message_handler(commands=['январь'])
+async def january_statistics(message: types.Message):
+    """Отправляет статистику расходов за январь месяц в текущем году"""
+    answer_message = expenses.get_month_statistics('01')
+    await message.answer(answer_message)
+
+
+@dp.message_handler(commands=['февраль'])
+async def february_statistics(message: types.Message):
+    """Отправляет статистику расходов за февраль месяц в текущем году"""
+    answer_message = expenses.get_month_statistics('02')
+    await message.answer(answer_message)
+
+
+@dp.message_handler(commands=['март'])
+async def march_statistics(message: types.Message):
+    """Отправляет статистику расходов за март месяц в текущем году"""
+    answer_message = expenses.get_month_statistics('03')
+    await message.answer(answer_message)
+
+
+@dp.message_handler(commands=['апрель'])
+async def april_statistics(message: types.Message):
+    """Отправляет статистику расходов за апрель месяц в текущем году"""
+    answer_message = expenses.get_month_statistics('04')
+    await message.answer(answer_message)
+
+
+@dp.message_handler(commands=['май'])
+async def may_statistics(message: types.Message):
+    """Отправляет статистику расходов за май месяц в текущем году"""
+    answer_message = expenses.get_month_statistics('05')
+    await message.answer(answer_message)
+
+
+@dp.message_handler(commands=['июнь'])
+async def june_statistics(message: types.Message):
+    """Отправляет статистику расходов за июня месяц в текущем году"""
+    answer_message = expenses.get_month_statistics('06')
+    await message.answer(answer_message)
+
+
+@dp.message_handler(commands=['июль'])
+async def july_statistics(message: types.Message):
+    """Отправляет статистику расходов за июль месяц в текущем году"""
+    answer_message = expenses.get_month_statistics('07')
+    await message.answer(answer_message)
+
+
+@dp.message_handler(commands=['август'])
+async def august_statistics(message: types.Message):
+    """Отправляет статистику расходов за август месяц в текущем году"""
+    answer_message = expenses.get_month_statistics('08')
+    await message.answer(answer_message)
+
+
+@dp.message_handler(commands=['сентябрь'])
+async def september_statistics(message: types.Message):
+    """Отправляет статистику расходов за сентябрь месяц в текущем году"""
+    answer_message = expenses.get_month_statistics('09')
+    await message.answer(answer_message)
+
+
+@dp.message_handler(commands=['октябрь'])
+async def october_statistics(message: types.Message):
+    """Отправляет статистику расходов за октябрь месяц в текущем году"""
+    answer_message = expenses.get_month_statistics('10')
+    await message.answer(answer_message)
+
+
+@dp.message_handler(commands=['ноябрь'])
+async def november_statistics(message: types.Message):
+    """Отправляет статистику расходов за ноябрь месяц в текущем году"""
+    answer_message = expenses.get_month_statistics('11')
+    await message.answer(answer_message)
+
+
+@dp.message_handler(commands=['декабрь'])
+async def december_statistics(message: types.Message):
+    """Отправляет статистику расходов за декабрь месяц в текущем году"""
+    answer_message = expenses.get_month_statistics('12')
     await message.answer(answer_message)
 
 

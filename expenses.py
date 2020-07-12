@@ -56,13 +56,14 @@ def get_today_statistics() -> str:
             f"За текущий месяц: /month")
 
 
-def get_month_statistics() -> str:
-    """Возвращает строкой статистику расходов за текущий месяц"""
+def get_month_statistics(current_month: str) -> str:
+    """Возвращает строкой статистику расходов за указанный месяц в текущем году"""
     now = _get_now_datetime()
-    first_day_of_month = f'{now.year:04d}-{now.month:02d}-01'
+    current_year = f"{now.year:04d}"
     cursor = db.get_cursor()
     cursor.execute(f"select sum(amount) "
-                   f"from expense where date(created) >= '{first_day_of_month}'")
+                   f"from expense where extract(month FROM created) = {current_month} "
+                   f"and extract(year from created) = {current_year}")
     result = cursor.fetchone()
     cursor.close()
     if not result[0]:
